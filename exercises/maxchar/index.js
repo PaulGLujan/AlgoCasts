@@ -7,20 +7,25 @@
 
 function maxChar(str) {
   const charMap = [...str].reduce((charMap, char) => {
-    charMap[char] = charMap + 1 || 1;
+    if (charMap[char]) {
+      charMap[char]++;
+    } else {
+      charMap[char] = 1;
+    }
     return charMap;
   }, {});
 
-  let highestChar = "";
+  let max = 0;
+  let maxChar = "";
+
   for (const char in charMap) {
-    if (!highestChar) {
-      highestChar = char;
-    } else if (charMap[highestChar] < charMap[char]) {
-      highestChar = char;
+    if (charMap[char] > max) {
+      maxChar = char;
+      max = charMap[char];
     }
   }
 
-  return highestChar;
+  return maxChar;
 }
 
 module.exports = maxChar;
