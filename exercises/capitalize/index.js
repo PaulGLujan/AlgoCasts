@@ -7,14 +7,32 @@
 //   capitalize('a lazy fox') --> 'A Lazy Fox'
 //   capitalize('look, it is working!') --> 'Look, It Is Working!'
 
+/**************************************************
+ * Loop throught string and capitalize if previous
+ * letter is a ' '.
+ **************************************************/
 function capitalize(str) {
-  const words = str.split(" ");
-  return words
-    .map((word) => {
-      const firstChar = word[0].toUpperCase();
-      return firstChar + word.slice(1);
-    })
-    .join(" ");
+  return [...str].reduce((capitalized, char, i) => {
+    if (str[i - 1] === " " || i === 0) {
+      capitalized += char.toUpperCase();
+    } else {
+      capitalized += char;
+    }
+    return capitalized;
+  }, "");
 }
 
 module.exports = capitalize;
+
+/**************************************************
+ * Split the array into words. Capitalize first
+ * letter of word.
+ **************************************************/
+// function capitalize(str) {
+//   return str
+//     .split(" ")
+//     .map((word) => {
+//       return word[0].toUpperCase() + word.slice(1);
+//     })
+//     .join(" ");
+// }
