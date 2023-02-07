@@ -8,6 +8,10 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
+
+/**************************************************
+ * Sort the strings. Check that they are the same.
+ **************************************************/
 function anagrams(stringA, stringB) {
   return cleanString(stringA) === cleanString(stringB);
 }
@@ -33,6 +37,11 @@ module.exports = anagrams;
 //     }, {});
 // };
 
+/**************************************************
+ * Map out each character count. Check if the maps
+ * have the same amount of keys. Check that each
+ * character has the same count.
+ **************************************************/
 // const isMapSame = (mapA, mapB) => {
 //   if (Object.keys(mapA).length !== Object.keys(mapB).length) {
 //     return false;
